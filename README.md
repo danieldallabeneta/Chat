@@ -23,9 +23,9 @@ RAFAEL FOSSA E DANIEL VALDO DALLABENETA
 
 - OBTENÇÃO DE LOGIN (VALIDAÇÃO DE USUÁRIO E SENHA)
 
-| Operação: | Tabela, usuário, senha |
-|---        |---  |
-| Conteúdo: | "GET" tabela usuário, alias do usuário, senha |
+| Operação: | "GET" |
+| Campos: |Tabela, usuário, senha|
+| Conteúdo: |  tabela usuário, alias do usuário, senha |
 | Descrição: |  Verifica se a Senha e Login existem no cadastro de Login|
 | Retorno: | Se os dados informados estiverem corretos retornar “Seja bem vindo” ,Se os dados não forem encontrados na base retorna “ Login ou Senha inválido”.|
 
@@ -77,12 +77,12 @@ RAFAEL FOSSA E DANIEL VALDO DALLABENETA
 | Operação: | Usuário, DataHora, Mensagem |
 | --- | --- |
 | Conteúdo: |"GET" código do usuario, datahora da mensagem, última mensagem enviada/recebida|
-| Descrção: |Lista as ultimas conversas e ultimas mensagens enviadas ou recebidas|
+| Descrição: |Lista as ultimas conversas e ultimas mensagens enviadas ou recebidas|
 | Retorno: |Lista de usuário e prévia de conteúdo da última mensagem|
 
 
 | Operação:| Usuário, DataHora, Mensagem|
 | --- | --- |
 | Conteúdo: |"GET" código do usuario, datahora da mensagem, todas as mensagens enviadas|
-| Descrção: |Lista todas as mensagens enviadas ou recebidas|
+| Descrição: |Lista todas as mensagens enviadas ou recebidas|
 | Retorno: |Lista de usuário e prévia de conteúdo da última mensagem|
