@@ -30,45 +30,49 @@ RAFAEL FOSSA E DANIEL VALDO DALLABENETA
 
 | Operação: | Tabela, tbuser |
 |---        |---  |
-| Conteúdo: | "INSERT" tabela usuário,codigo, nome, senha|
+| Conteúdo: | "INSERT", "USER", nome, senha, status|
 | Descrição: | Insere o cadastro do usuário no banco de dados |
-| Retorno: | Se inserida, retorna “Usuário cadastrado!”, Se não, retorna “Dados inconsistentes para cadastro”. Se já existe um cadastro com os dados retorna “Usuário já cadastrado.”|
+| Retorno: | Se inserida, retorna “INSERT;TRUE”, Se não, retorna “INSERT;FALSE”|
 
 
--- EFETUANDO LOGIN
+-- BUSCAR USUÁRIO
 
 | Operação: | Tabela, tbuser |
 |---        |---  |
-| Conteúdo: | "GET" tabela usuário, nome, senha|
+| Conteúdo: | "GET", "USER", nome|
 | Descrição: | Busca cadastro do usuário no banco de dados |
-| Retorno: | Se usuário não cadastrado mensagem "Usuário não cadastrado", se cadastrado efetua login |
+| Retorno: | Se usuário não cadastrado mensagem "GET;FALSE", se cadastrado "codigo,nome,senha,status" |
 
+--FAZER LOGIN
 
+| Operação: | Tabela, tbuser |
+|---        |---  |
+| Conteúdo: | "ALTER", "STATUS", codigo, status, ip, porta|
+| Descrição: | Altera a situação do usuário para online e cadastra o ip e porta do host |
+| Retorno: | Se alterado corretamente retorna "true". Caso não altere retorna "False" |
 
 -- INSERÇÃO DE MENSAGENS
 
 | Operação: | Tabela, tbmensagem |
 |---        |---  |
-| Conteúdo: | "INSERT" tabela mensagem, id, user|
+| Conteúdo: | "INSERT","MESSAGE", user, mensagem|
 | Descrição: | Insere a mensagem no banco de dados |
-| Retorno: | Se mensagem não gravada no banco de dados "Erro ao gravar mensagem" |
+| Retorno: | Se mensagem gravada com sucesso retorna a lista das ultimas 500 mensagens. Se não gravada retorna "false"|
 
 
--- BUSCA DE MENSAGEM
+-- BUSCA DE MENSAGENS
 
-| Operação: | Tabela, tbmensage |
+| Operação: | Tabela, tbmessage |
 |---		| ---- |
-| Conteúdo: | "GET" tabela mensagem, tbmensage |
+| Conteúdo: | "LIST", "MESSAGE" |
 | Descrição: | Lista as últimas 500 mensagens armazenadas no banco de dados |
-| Retorno:  | Se não houver mensagens lisatgem será "NULL", se houver listará mensagens |
+| Retorno:  | Se não houver mensagens o retorno será "", se houver mensagens retorna String com todas as ultimas 500 mensagens |
 
 
+-BUSCA USUÁRIOS
 
-
-- OBTENÇÃO DE LOGIN (VALIDAÇÃO DE USUÁRIO E SENHA)
-
-| Operação: | Tabela, usuário, senha |
+| Operação: | Tabela, tbuser |
 |---        |---  |
-| Conteúdo: | "GET" tabela usuário, alias do usuário, senha |
-| Descrição: |  Verifica se a Senha e Login existem no cadastro de Login|
-| Retorno: | Se os dados informados estiverem corretos retornar “Seja bem vindo” ,Se os dados não forem encontrados na base retorna “ Login ou Senha inválido”.|
+| Conteúdo: | "LIST", "USER" |
+| Descrição: |  Retorna todos os usuários cadastrados|
+| Retorno: | Se não houver usuários cadastrados o retorno será "", se houver usuários retorna String com todos os usuários cadastrados|
